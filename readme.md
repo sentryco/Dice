@@ -1,0 +1,2 @@
+# Dice
+ Random string generator
