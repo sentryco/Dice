@@ -37,7 +37,7 @@ Swift.print("psw:  \(String(describing: psw))")
 - https://checkmarx.com/de/blog/security-mistakes-developing-swift-applications-test/
 - Remove the resoure files. or move to mockgen lib?
 
-### Psudo code for entropy test:
+### Pseudo code for entropy test:
 ```swift
 For the SecRandom password generator code.
 Just hit the method enough times and check occurrence rate of similar characters etc.

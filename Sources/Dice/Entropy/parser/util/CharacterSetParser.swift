@@ -7,6 +7,7 @@ final class CharacterSetParser {
     * Returns the number of occurrences of a given character set in a string.
     * - Description: This function counts the number of occurrences of a specified character set in a given string. The character set can be inverted to count all characters not in the set.
     * - Fixme: ⚠️️ Maybe there is a faster way to count occurrences?
+    * - Fix: rename to getOccurrences. there is a typo currently
     * - Examples:
     *   - `occurrences(str: "abc123$%#", characterSet: .decimalDigits)` returns `3` (numbers).
     *   - `occurrences(str: "abc123$%#", characterSet: .alphanumerics)` returns `6` (letters and numbers).
