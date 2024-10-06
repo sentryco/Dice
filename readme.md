@@ -7,6 +7,11 @@
 ### Description
 Utilizes a Nonce-based approach, leveraging entropy derived from kinetic inputs and other sources to enhance security.
 
+### Features
+- **Secure Random Password Generation**: Utilizes a Nonce-based approach for enhanced security.
+- **Symmetric Key Generation**: Generates a random symmetric key using `SecRandomCopyBytes`. 
+- **Entropy Testing**: Provides a pseudo code for testing the entropy of the password generation mechanism.  
+
 ### Example
 ```swift
 let recipe: RandomPassword.PasswordRecipe = (4,0, Int.random(in: 2...8)) // Define a password recipe with 4 words and a separator, and a random word length between 2 and 8
