@@ -8,10 +8,16 @@ import Logger
 public final class SeedWordList {
    /**
     * Returns an array of "bitcoin-seed-words" used for word-based passwords.
-    * - Description: This class provides a static collection of seed words that can be used to generate secure word-based passwords. The words are sourced from a JSON file containing a list compliant with the BIP-0039 standard for deterministic wallets.
+    * - Description: This class provides a static collection of seed words that
+    *                can be used to generate secure word-based passwords. The
+    *                words are sourced from a JSON file containing a list
+    *                compliant with the BIP-0039 standard for deterministic
+    *                wallets.
     * - Remark: The `Config.Bundle.assets` cannot be used for some reason.
-    * - Important: The files inside the assets bundle are moved into the resource path.
-    * - Note: The word list is based on the BIP-0039 standard and can be found at https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt#L608.
+    * - Important: The files inside the assets bundle are moved into the
+    *              resource path.
+    * - Note: The word list is based on the BIP-0039 standard and can be found
+    *         at https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt#L608.
     * - Fixme: ⚠️️ Consider storing the word list in a plist instead of a JSON file.
     * - Fixme: ⚠️️ Consider throwing an error if the resources are not available.
     * - Fixme: ⚠️️ This functionality is also available via the Account package.

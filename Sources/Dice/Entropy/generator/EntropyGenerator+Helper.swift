@@ -6,13 +6,19 @@ import CryptoKit
 extension String {
    /**
     * Generates a random string of a given length and character set.
-    * - Description: This method generates a cryptographically secure random nonce string. The length and character set of the string can be specified. If the 'unique' parameter is set to true, the method ensures that no character is repeated in the generated string.
+    * - Description: This method generates a cryptographically secure random
+    *                nonce string. The length and character set of the string
+    *                can be specified. If the 'unique' parameter is set to true,
+    *                the method ensures that no character is repeated in the
+    *                generated string.
     * - Parameters:
     *   - len: The length of the random string to generate.
     *   - base: The characters to include in the random string.
     *   - unique: If true, the generated string will not contain repeated characters.
     * - Returns: A random string of the specified length and character set.
-    * - Remark: This is a convenience function that calls the `randomString` function with the `charSet` parameter set to the `base` parameter as an array of characters.
+    * - Remark: This is a convenience function that calls the `randomString`
+    *           function with the `charSet` parameter set to the `base`
+    *           parameter as an array of characters.
     */
    public static func randomNonceStr(base: [Character] = EntropyGenerator.defaultCharSet, len: Int, unique: Bool = false) throws -> String {
       let strSet: [String] = base.map(String.init) /*base.map { String($0) }*/ // Convert the character set to an array of strings

@@ -79,3 +79,8 @@ let secretKey = computeSymmetricKey()
 ```swift
 .package(url: "https://github.com/sentryco/Dice", branch: "main")
 ```
+
+## Todo:
+- Expand the unit tests to cover more scenarios, especially focusing on the entropy and security aspects of the password generation. This could include more rigorous testing of edge cases and failure modes.
+- There is a pseudo code for entropy testing in the readme.md, but it appears that actual implementation might be missing or incomplete. Implement a robust entropy testing mechanism to ensure the randomness and security of the generated passwords, as outlined in the pseudo code
+- Given the nature of the project (password generation), security is paramount. Conduct regular security audits and update the entropy generation methods based on the latest cryptographic research and standards.

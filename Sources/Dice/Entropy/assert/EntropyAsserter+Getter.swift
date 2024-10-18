@@ -5,7 +5,14 @@ import Foundation
 extension EntropyAsserter {
    /**
     * Returns the entropy strength (strong, medium, weak, none) for a given password string.
-    * - Description: This function calculates the strength of a given password string based on its entropy. It uses the `EntropyParser` to get the metadata of the password, including the count of letter, number, and special characters. It then compares these counts with the thresholds defined for each entropy level (strong, medium, weak, none). The function returns the highest entropy level for which all thresholds are met. If no thresholds are met, it returns 'none'.
+    * - Description: This function calculates the strength of a given password
+    *                string based on its entropy. It uses the `EntropyParser` to
+    *                get the metadata of the password, including the count of
+    *                letter, number, and special characters. It then compares
+    *                these counts with the thresholds defined for each entropy
+    *                level (strong, medium, weak, none). The function returns the
+    *                highest entropy level for which all thresholds are met. If
+    *                no thresholds are met, it returns 'none'.
     * - Parameter string: The password string to measure the strength of.
     * - Returns: An `Entropy` value representing the strength of the password.
     * - Fixme: ⚠️️ Ask copilot to refactor and simplify? maybe use Range? copilot doesnt seem to find a better solution

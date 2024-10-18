@@ -5,8 +5,13 @@ import Foundation
 extension EntropyParser {
    /**
     * Returns a structure containing the analysis of a password.
-    * - Description: This function analyzes a given password and returns a `PasswordMetaData` structure. The structure contains the count of various types of characters in the password, including letters, numbers, special characters, and the count of lowercase and uppercase letters.
-    * - Remark: This function counts the number of letters, numbers, and special characters in the input password.
+    * - Description: This function analyzes a given password and returns a
+    *                `PasswordMetaData` structure. The structure contains the
+    *                count of various types of characters in the password,
+    *                including letters, numbers, special characters, and the
+    *                count of lowercase and uppercase letters.
+    * - Remark: This function counts the number of letters, numbers, and
+    *           special characters in the input password.
     * - Parameters:
     *   - password: The password to analyze.
     * - Returns: A `PasswordMetaData` structure containing the number of letters, numbers, and special characters in the password.

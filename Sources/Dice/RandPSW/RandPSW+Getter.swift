@@ -8,7 +8,13 @@ import Foundation
 extension RandPSW {
    /**
     * Generates a password based on the recipe configuration.
-    * - Description: This function generates a random password or word based on the provided parameters. The length, usage of words, numbers, symbols, hyphens, and uppercase letters can be customized. If 'useWords' is true, the function generates a password composed of words. Otherwise, it generates a character-based password. The function throws an error if the password cannot be generated.
+    * - Description: This function generates a random password or word based on
+    *                the provided parameters. The length, usage of words, numbers,
+    *                symbols, hyphens, and uppercase letters can be customized.
+    *                If 'useWords' is true, the function generates a password
+    *                composed of words. Otherwise, it generates a character-based
+    *                password. The function throws an error if the password cannot
+    *                be generated.
     * - Fixme: ⚠️️ Rename to `getRandomWord`? or `getRandomPasswordOrWord`? this entire class is a bit messy atm, do the renaming when you work on it etc
     * - Fixme: ⚠️️ Add `isUppercased` flag? We would have to redesign the UI a bit first. seems to be in now, remove this comment?
     * ## Examples:
@@ -39,7 +45,11 @@ extension RandPSW {
    }
    /**
     * Generates a random password based on the given recipe.
-    * - Description: This function generates a random password based on the provided recipe. The recipe defines the number of characters, numeric characters, and special characters to be included in the password. The function throws an error if the password cannot be generated.
+    * - Description: This function generates a random password based on the
+    *                provided recipe. The recipe defines the number of characters,
+    *                numeric characters, and special characters to be included in
+    *                the password. The function throws an error if the password
+    *                cannot be generated.
     * - Fixme: ⚠️️ Rename to `makeRandomPassword`? or? and deprecate this, this entire class is a bit messy atm, do the renaming when you work on it etc
     * - Remark: If no password is made, the user will have to make one.
     * - Example:

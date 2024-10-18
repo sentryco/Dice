@@ -38,7 +38,12 @@ extension EntropyAsserter.Entropy {
    }
    /**
     * Returns strength-type that is above these defined "max-thresholds" etc
-    * - Description: This property returns the minimum thresholds for each character type (letter, number, uppercase, lowercase, special) required for a password to be considered of a certain strength (strong, medium, weak, none). The thresholds are defined based on the entropy level of the password.
+    * - Description: This property returns the minimum thresholds for each
+    *                character type (letter, number, uppercase, lowercase,
+    *                special) required for a password to be considered of a
+    *                certain strength (strong, medium, weak, none). The
+    *                thresholds are defined based on the entropy level of the
+    *                password.
     * - Fixme: ⚠️️ Use better thresholds, do some research into which we shoul use etc
     * - Fixme: ⚠️️ maybe move each Threshold into its own static let?
     */
@@ -75,8 +80,11 @@ extension EntropyAsserter.Entropy {
    }
    /**
     * The color used to display the security grade text.
-    * - Description: This property represents the color associated with the password's security level. It is used to provide a visual indication of the password's strength to the user.
-    * - Remark: This color is used to give the user a visual indication of the password's security level.
+    * - Description: This property represents the color associated with the
+    *                password's security level. It is used to provide a visual
+    *                indication of the password's strength to the user.
+    * - Remark: This color is used to give the user a visual indication of the
+    *           password's security level.
     */
    public var color: OSColor {
       switch self {

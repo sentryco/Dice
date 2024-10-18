@@ -1,9 +1,14 @@
 import Foundation
 /**
  * A structure containing the analysis of a password.
- * - Description: This struct is used to store and analyze the metadata of a password. It includes the count of various types of characters such as letters, numbers, special characters, and also the count of lowercase and uppercase letters.
+ * - Description: This struct is used to store and analyze the metadata of a
+ *                password. It includes the count of various types of
+ *                characters such as letters, numbers, special characters,
+ *                and also the count of lowercase and uppercase letters.
  * - Fixme: ⚠️️ Move to own file?
- * - Remark: This struct provides information on the number of letters, numbers, and special characters in the input password, as well as the number of lowercase and uppercase letters.
+ * - Remark: This struct provides information on the number of letters, numbers,
+ *           and special characters in the input password, as well as the
+ *           number of lowercase and uppercase letters.
  * - Remark: This is a struct, because tuples are more suitable for simpler stuff.
  */
 public struct PasswordMetaData {
