@@ -1,4 +1,5 @@
 [![Tests](https://github.com/sentryco/Dice/actions/workflows/Tests.yml/badge.svg)](https://github.com/sentryco/Dice/actions/workflows/Tests.yml)
+[![codebeat badge](https://codebeat.co/badges/1f72598b-1883-4211-9f5c-38acdde6f6cd)](https://codebeat.co/projects/github-com-sentryco-dice-main)
 
 # Dice 🎲
 
