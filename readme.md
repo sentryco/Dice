@@ -8,6 +8,27 @@
 ### Description
 Dice is a Swift library for generating cryptographically secure random passwords and symmetric keys. It utilizes a nonce-based approach, leveraging entropy derived from kinetic inputs and other sources to enhance security. The library provides tools for password generation, entropy testing, and supports word-based passphrases following the Diceware methodology.
 
+# Problem
+
+Modern applications require robust security measures to protect sensitive data and user information. There are three core challenges in this context:
+
+1. **Generating Cryptographically Secure Passwords**: Creating complex, unpredictable passwords that can withstand brute-force and dictionary attacks.
+
+2. **Producing Strong Symmetric Keys**: Generating truly random keys for encryption purposes to ensure data confidentiality.
+
+3. **Creating Memorable Yet Secure Passphrases**: Balancing security and usability by providing passphrases that are easy to remember but hard to crack.
+
+# Solution
+
+**Dice** addresses these challenges with the following solutions:
+
+1. **Secure Random Password Generation**: Utilizes a nonce-based approach combined with cryptographically secure random number generators to produce complex and unique passwords.
+
+2. **Symmetric Key Generation**: Provides functionality to create strong symmetric keys using `SecRandomCopyBytes`, ensuring keys are random and suitable for encryption tasks.
+
+3. **Word-Based Passphrase Generation**: Implements the Diceware methodology to generate passphrases from a seed word list, resulting in memorable yet secure passphrases for users.
+
+
 ### Features
 
 - 🎲 **Secure Random Password Generation**: Generates random passwords using a nonce-based approach for enhanced security.
@@ -85,9 +106,7 @@ dependencies: [
 
   - [Apple's Security Framework](https://developer.apple.com/documentation/security)
 
-### Gotcha:
-
-- **Diceware Method**: Diceware generates cryptographically strong passphrases by randomly selecting words from a wordlist. This results in memorable passwords that are highly resistant to attacks.
+> **Note:** Diceware generates cryptographically strong passphrases by randomly selecting words from a wordlist. This results in memorable passwords that are highly resistant to attacks.
 
 ### Todo
 - Make more tests ✅
