@@ -317,4 +317,17 @@ extension DiceTests {
       let strongPassword = String(repeating: "aA1$", count: 10)
       XCTAssertEqual(EntropyAsserter.getStrength(string: strongPassword), .medium, "Password incorrectly classified after threshold adjustment")
    }
+
+   func testShannonEntropyLevelEdgeCases() throws {
+       // Weak password
+       let weakPassword = "pass123"
+       XCTAssertEqual(getStrength(string: weakPassword), .weak, "Weak password incorrectly classified")
+       
+       // Medium password
+       let mediumPassword = "Medium123"
+       XCTAssertEqual(getStrength(string: mediumPassword), .medium, "Password not classified as medium")
+       // Strong password
+       let strongPassword = "5tr0nG&P@55w0rd!#2023$%"
+       XCTAssertEqual(getStrength(string: strongPassword), .strong, "Password not classified as strong")
+   }
 }
