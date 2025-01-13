@@ -16,6 +16,18 @@ extension RandPSW {
       case unableToGenerateNumbers // Indicates failure to generate numeric characters
       case unableToGenerateSymbols // Indicates failure to generate special characters
       case unableToGenerateBase // Indicates failure to generate the base password
+       var errorDescription: String? {
+            switch self {
+            case .unableToGenerateLetters:
+                return "Unable to generate letters for the password."
+            case .unableToGenerateNumbers:
+                return "Unable to generate numbers for the password."
+            case .unableToGenerateSymbols:
+                return "Unable to generate symbols for the password."
+            case .unableToGenerateBase:
+                return "Unable to generate the base password."
+            }
+        }
    }
    /**
     * Recipe
