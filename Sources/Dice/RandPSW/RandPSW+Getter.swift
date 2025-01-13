@@ -40,7 +40,7 @@ extension RandPSW {
             usesNum: usesNum, // Whether the password should contain numbers or not
             usesSym: usesSym // Whether the password should contain symbols or not
          ) // Generate a password recipe based on the given parameters
-         return try RandPSW.makeRandomWord(recipe: recipe) // Generate a password based on the recipe
+         return try RandPSW.makeRandomPassword(recipe: recipe) // Generate a password based on the recipe
       }
    }
    /**
@@ -50,7 +50,6 @@ extension RandPSW {
     *                numeric characters, and special characters to be included in
     *                the password. The function throws an error if the password
     *                cannot be generated.
-    * - Fixme: ⚠️️ Rename to `makeRandomPassword`? or? and deprecate this, this entire class is a bit messy atm, do the renaming when you work on it etc
     * - Remark: If no password is made, the user will have to make one.
     * - Example:
     *   let password = try RandPSW.makeRandomWord(recipe: .init(charCount: 12, numCount: 2, symCount: 2))
@@ -59,7 +58,7 @@ extension RandPSW {
     *   - recipe: The recipe to use for generating the password.
     * - Returns: A randomly generated password.
     */
-   public static func makeRandomWord(recipe: PasswordRecipe) throws -> String {
+   public static func makeRandomPassword(recipe: PasswordRecipe) throws -> String {
       try makeRandomWord(
          charCount: recipe.charCount, // The number of characters in the password
          numCount: recipe.numCount, // The number of numeric characters in the password
@@ -228,5 +227,13 @@ extension RandPSW {
          throw RandErr.unableToGenerateSymbols // Throw error if generation fails
       }
       return specials // Return the generated string
+   }
+}
+// deprecated ⚠️️
+extension RandPSW {
+   // deprecated ⚠️️
+   @available(*, deprecated, renamed: "makeRandomPassword")
+   public static func makeRandomWord(recipe: PasswordRecipe) throws -> String {
+      try makeRandomPassword(recipe: recipe)
    }
 }

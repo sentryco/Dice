@@ -8,7 +8,7 @@ final class CharacterSetParser {
     * - Description: This function counts the number of occurrences of a
     *                specified character set in a given string. The character
     *                set can be inverted to count all characters not in the set.
-    * - Fixme: ⚠️️ Maybe there is a faster way to count occurrences?
+    * - Note: Seems like o1 gets this wrong when refactoring. So keep as is
     * - Fix: rename to getOccurrences. there is a typo currently
     * - Examples:
     *   - `occurrences(str: "abc123$%#", characterSet: .decimalDigits)` returns `3` (numbers).
@@ -23,12 +23,7 @@ final class CharacterSetParser {
     * - Returns: The number of occurrences of the given character set in the string.
     */
    internal static func getOccurences(str: String, characterSet: CharacterSet, inverted: Bool = true) -> Int {
-      let filteredString = str.unicodeScalars.filter { char in
-         inverted ? !characterSet.contains(char) : characterSet.contains(char)
-      }
-      return filteredString.count
-      // was ⚠️️
-      // let charSet: CharacterSet = inverted ? characterSet.inverted : characterSet // Find all specified characters
-      // return str.components(separatedBy: charSet).joined().count // Count the number of occurrences of the specified characters
+       let charSet: CharacterSet = inverted ? characterSet.inverted : characterSet // Find all specified characters
+       return str.components(separatedBy: charSet).joined().count // Count the number of occurrences of the specified characters
    }
 }

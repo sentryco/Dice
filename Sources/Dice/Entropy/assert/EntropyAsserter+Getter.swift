@@ -19,12 +19,24 @@ extension EntropyAsserter {
     */
    public static func getStrength(string: String) -> Entropy {
       // Retrieves the metadata of the given password string using the EntropyParser
+//       let pswMeta = EntropyParser.getPasswordMetaData(password: string)
+//      Swift.print("pswMeta:  \(pswMeta)")
+      // // Check if the password meets the threshold for each character type
+//       return Entropy.allCases.first { entropy in
+//          pswMeta.letterCharCount >= entropy.threshold.letter && // Check if the number of letter characters meets the threshold for the current entropy level
+//          pswMeta.numberCharCount >= entropy.threshold.num && // Check if the number of numeric characters meets the threshold for the current entropy level
+//          pswMeta.specialCharCount >= entropy.threshold.special // Check if the number of special characters meets the threshold for the current entropy level
+//       } ?? .none // Return true if the password meets all the threshold requirements, Return the entropy value if a match was found, otherwise return none
+      // ⚠️️ o1 suggest this is more readable and efficient
       let pswMeta = EntropyParser.getPasswordMetaData(password: string)
-      // Check if the password meets the threshold for each character type
-      return Entropy.allCases.first { entropy in
-         pswMeta.letterCharCount >= entropy.threshold.letter && // Check if the number of letter characters meets the threshold for the current entropy level
-         pswMeta.numberCharCount >= entropy.threshold.num && // Check if the number of numeric characters meets the threshold for the current entropy level
-         pswMeta.specialCharCount >= entropy.threshold.special // Check if the number of special characters meets the threshold for the current entropy level
-      } ?? .none // Return true if the password meets all the threshold requirements, Return the entropy value if a match was found, otherwise return none
+       for entropy in Entropy.allCases {
+           let threshold = entropy.threshold
+           if pswMeta.letterCharCount >= threshold.letter &&
+              pswMeta.numberCharCount >= threshold.num &&
+              pswMeta.specialCharCount >= threshold.special {
+               return entropy
+           }
+       }
+       return .none
    }
 }

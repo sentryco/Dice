@@ -35,6 +35,39 @@ extension EntropyAsserter.Entropy {
        * The minimum number of special characters required 
        */
       public let special: Int
+      /**
+       * - Fixme: ⚠️️ add doc
+       */
+      fileprivate static let strongThreshold: Threshold =  // Return the minimum threshold for a strong password
+         .init(
+            letter: 16, // The minimum number of letters required
+            num: 8, // The minimum number of numbers required
+            upper: 4, // The minimum number of uppercase letters required
+            lower: 4, // The minimum number of lowercase letters required
+            special: 0 // The minimum number of special characters required
+         )
+      /**
+       * - Fixme: ⚠️️ add doc
+       */
+      fileprivate static let mediumThreshold: Threshold = // Return the minimum threshold for a medium password
+         .init(
+            letter: 6, // The minimum number of letters required
+            num: 6, // The minimum number of numbers required
+            upper: 2, // The minimum number of uppercase letters required
+            lower: 2, // The minimum number of lowercase letters required
+            special: 0 // The minimum number of special characters required
+         )
+      /**
+       * - Fixme: ⚠️️ add doc
+       */
+      fileprivate static let weakThreshold: Threshold = // Return the minimum threshold for a weak or invalid password
+         .init(
+            letter: 4, // The minimum number of letters required
+            num: 2, // The minimum number of numbers required
+            upper: 1, // The minimum number of uppercase letters required
+            lower: 1, // The minimum number of lowercase letters required
+            special: 0 // The minimum number of special characters required
+         )
    }
    /**
     * Returns strength-type that is above these defined "max-thresholds" etc
@@ -45,37 +78,17 @@ extension EntropyAsserter.Entropy {
     *                thresholds are defined based on the entropy level of the
     *                password.
     * - Fixme: ⚠️️ Use better thresholds, do some research into which we shoul use etc
-    * - Fixme: ⚠️️ maybe move each Threshold into its own static let?
     */
    public var threshold: Threshold {
       switch self {
-      case .strong:
-         // Return the minimum threshold for a strong password
-         return .init(
-            letter: 16, // The minimum number of letters required
-            num: 8, // The minimum number of numbers required
-            upper: 4, // The minimum number of uppercase letters required
-            lower: 4, // The minimum number of lowercase letters required
-            special: 0 // The minimum number of special characters required
-         )
-      case .medium:
-         // Return the minimum threshold for a medium password
-         return .init(
-            letter: 6, // The minimum number of letters required
-            num: 6, // The minimum number of numbers required
-            upper: 2, // The minimum number of uppercase letters required
-            lower: 2, // The minimum number of lowercase letters required
-            special: 0 // The minimum number of special characters required
-         )
-      case .weak, .none:
-         // Return the minimum threshold for a weak or invalid password
-         return .init(
-            letter: 0, // The minimum number of letters required
-            num: 0, // The minimum number of numbers required
-            upper: 0, // The minimum number of uppercase letters required
-            lower: 0, // The minimum number of lowercase letters required
-            special: 0 // The minimum number of special characters required
-         )
+      case .strong: return  .strongThreshold
+        
+      case .medium: return  .mediumThreshold
+         
+      case .weak: return  .weakThreshold
+
+      case .none: return Threshold(letter: 0, num: 0, upper: 0, lower: 0, special: 0)
+         
       }
    }
    /**

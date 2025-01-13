@@ -25,4 +25,22 @@ extension DiceTests {
          XCTAssert(abs(count - expectedFrequency) < tolerance, "Character \(character) frequency is out of expected range.")
       }
    }
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
+   func testPasswordGenerationUsingRecipe() throws {
+       let recipe = RandPSW.PasswordRecipe(charCount: 10, numCount: 5, symCount: 2)
+       let password = try RandPSW.makeRandomPassword(recipe: recipe)
+       XCTAssertEqual(password.count, 17)
+       // Additional assertions to verify the composition of the password
+   }
+   /**
+    * - Fixme: ⚠️️ add doc
+    */
+   func testEntropyLevels() {
+       XCTAssertEqual(EntropyAsserter.getStrength(string: "ABCDEFGHabcdefgh12345678"), .strong)
+       XCTAssertEqual(EntropyAsserter.getStrength(string: "abcdef123456"), .medium)
+       XCTAssertEqual(EntropyAsserter.getStrength(string: "AaBb12"), .weak)
+       XCTAssertEqual(EntropyAsserter.getStrength(string: ""), .none)
+   }
 }

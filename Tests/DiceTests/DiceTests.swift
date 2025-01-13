@@ -28,7 +28,7 @@ extension DiceTests {
          numCount: 0, // The number of numbers in the password
          symCount: 4 // The number of symbols in the password
       ) // Create a password recipe with 4 characters and 4 symbols, but no numbers, and assign it to `recipe`
-      let psw: String = try RandPSW.makeRandomWord(recipe: recipe) // Generate a random password using the `RandPSW.getRandomPassword` method and the `recipe`, and assign it to `psw`. If the password generation fails, throw an error.
+      let psw: String = try RandPSW.makeRandomPassword(recipe: recipe) // Generate a random password using the `RandPSW.getRandomPassword` method and the `recipe`, and assign it to `psw`. If the password generation fails, throw an error.
       // Swift.print("psw: \(String(describing: psw))")
       let equals: Bool = psw.count == 8
       Swift.print("Length equals: \(equals ? "✅" : "🚫")")
@@ -39,7 +39,7 @@ extension DiceTests {
     * - Description: Tests if all characters are unique
     */
    fileprivate static func testCryptoPassword() throws {
-      let cryptoBasedPSW: String = try RandPSW.makeRandomWord(
+      let cryptoBasedPSW: String = try RandPSW.makeRandomPassword(
          recipe: .init(
             charCount: 4, // The number of characters in the password
             numCount: 8, // The number of numbers in the password
