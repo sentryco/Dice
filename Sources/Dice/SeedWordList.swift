@@ -1,7 +1,7 @@
 import Foundation
 import JSONSugar
 import FileSugar
-import Logger
+//import Logger
 /**
  * JSON -> String-Array
  */
@@ -25,18 +25,18 @@ public final class SeedWordList {
    public static let words: [String] = {
       guard let resourcePath: String = Foundation.Bundle.module.resourcePath else {
          // This line logs a warning message with a trace and tag to the console
-         Logger.warn("\(Trace.trace()) Error getting resourcePath", tag: .security)
+         Swift.print("Error getting resourcePath")
          return []
       } // Get the resource path for the module
       let filePath: String = resourcePath + "/" + "words.json" // Define the file path to the word list
       guard let data: Data = FileParser.data(filePath: filePath) else {
          // This line logs a warning message with a trace and tag to the console
-         Logger.warn("\(Trace.trace()) Error reading data: \(filePath)", tag: .security)
+         Swift.print("Error reading data: \(filePath)")
          return []
       } // Get the data from the file
       guard let items: [String] = try? data.decode() else {
          // This line logs a warning message with a trace and tag to the console
-         Logger.warn("\(Trace.trace()) Error parsing JSON", tag: .security)
+         Swift.print("Error parsing JSON")
          return []
       } // Decode the data to a string array
       return items.sorted() // Sort the array alphabetically

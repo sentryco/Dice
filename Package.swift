@@ -14,12 +14,12 @@ let package = Package(
     ], // Lists the products of the package
     dependencies: [
         .package(url: "https://github.com/eonist/JSONSugar.git", branch: "master"), // Adds JSONSugar as a dependency
-        .package(url: "https://github.com/sentryco/Logger.git", branch: "main") // Adds Logger as a dependency
+//        .package(url: "https://github.com/sentryco/Logger.git", branch: "main") // Adds Logger as a dependency
     ], // Lists the dependencies of the package
     targets: [
         .target(
             name: "Dice",
-            dependencies: ["JSONSugar", "Logger"], // Adds JSONSugar and Logger as dependencies for the Dice target
+            dependencies: ["JSONSugar"/*, "Logger"*/], // Adds JSONSugar and Logger as dependencies for the Dice target
             resources: [.process("Resources")]), // Include the "Resources" directory as a resource
         .testTarget(
             name: "DiceTests",
