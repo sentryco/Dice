@@ -324,10 +324,67 @@ extension DiceTests {
        XCTAssertEqual(getStrength(string: weakPassword), .weak, "Weak password incorrectly classified")
        
        // Medium password
-       let mediumPassword = "Medium123"
+       let mediumPassword = "abcdefghij"
        XCTAssertEqual(getStrength(string: mediumPassword), .medium, "Password not classified as medium")
        // Strong password
        let strongPassword = "5tr0nG&P@55w0rd!#2023$%"
        XCTAssertEqual(getStrength(string: strongPassword), .strong, "Password not classified as strong")
    }
+
+    /// Test entropy calculation for an empty string.
+    func testCalculateEntropy_emptyString() {
+        let entropy = calculateEntropy(of: "")
+        XCTAssertEqual(entropy, 0.0)
+    }
+    
+    /// Test entropy calculation for a string with one character.
+    func testCalculateEntropy_singleCharacter() {
+        let entropy = calculateEntropy(of: "a")
+        XCTAssertEqual(entropy, 0.0)
+    }
+    
+    /// Test entropy calculation for a string with repeating characters.
+    func testCalculateEntropy_repeatingCharacter() {
+        let entropy = calculateEntropy(of: "aaaaaa")
+        XCTAssertEqual(entropy, 0.0)
+    }
+    
+    /// Test entropy calculation for a string with all unique characters.
+    func testCalculateEntropy_uniqueCharacters() {
+        let entropy = calculateEntropy(of: "abcdef")
+        let expectedEntropy = log2(6.0) * 6.0 // Since each character is unique, total entropy is log2(6) * length
+        XCTAssertEqual(entropy, expectedEntropy, accuracy: 0.0001)
+    }
+    
+    /// Test entropy calculation for a string with known character frequencies.
+    func testCalculateEntropy_mixedCharacters() {
+        let testString = "aaabbbccc"
+        let entropy = calculateEntropy(of: testString)
+        
+        // Frequencies: a:3/9, b:3/9, c:3/9
+        let frequencies = [3.0/9.0, 3.0/9.0, 3.0/9.0]
+        var expectedEntropy = 0.0
+        for p in frequencies {
+            expectedEntropy -= p * log2(p)
+        }
+        expectedEntropy *= Double(testString.count)
+        
+        XCTAssertEqual(entropy, expectedEntropy, accuracy: 0.0001)
+    }
+    
+    /// Test entropy calculation for a string with varying character frequencies.
+    func testCalculateEntropy_knownFrequencies() {
+        let testString = "1223334444"
+        let entropy = calculateEntropy(of: testString)
+        
+        // Frequencies: '1':1/10, '2':2/10, '3':3/10, '4':4/10
+        let frequencies = [1.0/10.0, 2.0/10.0, 3.0/10.0, 4.0/10.0]
+        var expectedEntropy = 0.0
+        for p in frequencies {
+            expectedEntropy -= p * log2(p)
+        }
+        expectedEntropy *= Double(testString.count)
+        
+        XCTAssertEqual(entropy, expectedEntropy, accuracy: 0.0001)
+    }
 }

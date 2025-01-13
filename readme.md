@@ -45,6 +45,14 @@ if let secretKey = computeSymmetricKey() {
 } else {
     Swift.print("Error generating symmetric key.")
 }
+
+// Example: Checking the strength of a password (using shannon entropy)
+import Dice
+
+let password = "My$up3r$trongP@ssw0rd!"
+let strength = getStrength(string: password)
+Swift.print("Password Strength: \(strength)")
+
 ```
 
 
