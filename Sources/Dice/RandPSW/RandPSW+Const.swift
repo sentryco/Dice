@@ -48,6 +48,7 @@ extension String {
     *           returned by `UnicodeScalar.init`.
     * - Note: Also works: internal static let letters: [Character] = .init("abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ") // Get all lower and upper case letters
     * - Fixme: ⚠️️ We can also do: `Array("a"..."z") // Directly create an array of characters from "a" to "z"`
+    * fixme: test performance array vs unicodescalar
     */
    internal static let lowerCaseLetters: [Character] = {
       // Array("a"..."z")
@@ -65,6 +66,7 @@ extension String {
     * - Remark: We use `compactMap` to filter out any `nil` values that may be
     *           returned by `UnicodeScalar.init`.
     * - Fixme: ⚠️️ We can also do: `Array("A"..."Z") // Directly create an array of characters from "A" to "Z"`
+    * fixme: test performance array vs unicodescalar
     */
    internal static let upperCaseLetters: [Character] = {
      // Array("A"..."Z")
@@ -80,6 +82,7 @@ extension String {
     *                RandPSW class. It includes all the letters from 'a' to
     *                'z' and 'A' to 'Z' to increase the complexity and
     *                security of the passwords.
+    * fixme: test performance array vs unicodescalar
     */
    internal static let lowerAndUpperCaseLetters: [Character] = {
       lowerCaseLetters + upperCaseLetters // Concatenate the lists of lowercase and uppercase letters
@@ -93,6 +96,7 @@ extension String {
     * - Note: Also works: internal static let numbers: [Character] = .init("123456789") // Get all numbers
     * - Remark: We use `compactMap` to filter out any `nil` values that may be returned by `UnicodeScalar.init`.
     * - Fixme: ⚠️️ We can also do: `Array("0"..."9") // Directly create an array of characters from "0" to "9"`
+    * fixme: test performance array vs unicodescalar
     */
    internal static let numerals: [Character] = {
       // Array("0"..."9")

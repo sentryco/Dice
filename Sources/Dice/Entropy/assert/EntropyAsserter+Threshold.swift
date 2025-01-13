@@ -38,7 +38,7 @@ extension EntropyAsserter.Entropy {
       /**
        * - Fixme: ⚠️️ add doc
        */
-      fileprivate static let strongThreshold: Threshold =  // Return the minimum threshold for a strong password
+      internal static var strongThreshold: Threshold =  // Return the minimum threshold for a strong password
          .init(
             letter: 16, // The minimum number of letters required
             num: 8, // The minimum number of numbers required
@@ -49,7 +49,7 @@ extension EntropyAsserter.Entropy {
       /**
        * - Fixme: ⚠️️ add doc
        */
-      fileprivate static let mediumThreshold: Threshold = // Return the minimum threshold for a medium password
+      internal static var mediumThreshold: Threshold = // Return the minimum threshold for a medium password
          .init(
             letter: 6, // The minimum number of letters required
             num: 6, // The minimum number of numbers required
@@ -60,7 +60,7 @@ extension EntropyAsserter.Entropy {
       /**
        * - Fixme: ⚠️️ add doc
        */
-      fileprivate static let weakThreshold: Threshold = // Return the minimum threshold for a weak or invalid password
+      internal static var weakThreshold: Threshold = // Return the minimum threshold for a weak or invalid password
          .init(
             letter: 4, // The minimum number of letters required
             num: 2, // The minimum number of numbers required

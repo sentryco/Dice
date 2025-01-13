@@ -10,7 +10,7 @@ extension RandPSW {
     *                represents a specific type of failure that can prevent
     *                the successful creation of a password component.
     */
-   enum RandErr: Error {
+   enum RandErr: LocalizedError {
       // Define error cases for when we are unable to generate letters, numbers, symbols, or the base password.
       case unableToGenerateLetters // Indicates failure to generate alphabetical characters
       case unableToGenerateNumbers // Indicates failure to generate numeric characters
