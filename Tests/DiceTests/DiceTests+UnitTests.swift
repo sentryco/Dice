@@ -3,7 +3,7 @@ import XCTest
 
 extension DiceTests {
    /**
-    * - Fixme: ⚠️️ add doc
+    * Tests the character distribution in generated passwords to ensure uniform randomness.
     * - Description: Generates a large number of passwords and analyzes the distribution of characters to verify uniform randomness.
     */
    func testCharacterDistribution() throws {
@@ -26,16 +26,37 @@ extension DiceTests {
       }
    }
    /**
-    * - Fixme: ⚠️️ add doc
+    * Tests the password generation using a specified recipe.
+    *
+    * This test creates a password using a recipe with a specific number of letters, numbers, and symbols.
+    * It verifies that the generated password meets the expected length and composition requirements.
+    *
+    * - Throws: An error if password generation fails.
     */
    func testPasswordGenerationUsingRecipe() throws {
       let recipe = RandPSW.PasswordRecipe(charCount: 10, numCount: 5, symCount: 2)
       let password = try RandPSW.makeRandomPassword(recipe: recipe)
-      XCTAssertEqual(password.count, 17)
-      // Additional assertions to verify the composition of the password
+      XCTAssertEqual(password.count, 17, "Password length does not match the expected count.")
+
+      // Verify the composition of the password
+      let letterCount = password.filter { $0.isLetter }.count
+      let numberCount = password.filter { $0.isNumber }.count
+      let symbolCount = password.filter { !$0.isLetter && !$0.isNumber }.count
+
+      XCTAssertEqual(letterCount, 10, "Letter count does not match the recipe.")
+      XCTAssertEqual(numberCount, 5, "Number count does not match the recipe.")
+      XCTAssertEqual(symbolCount, 2, "Symbol count does not match the recipe.")
    }
    /**
-    * - Fixme: ⚠️️ add doc
+    /**
+     * Tests the password strength assessment across different passwords at various thresholds.
+     *
+     * This test method verifies that the `EntropyAsserter.getStrength(string:)` function correctly assesses
+     * the strength of passwords based on defined thresholds for none, weak, medium, and strong levels.
+     * It tests passwords that are at, just below, and just above these thresholds to ensure accurate classification.
+     *
+     * - Throws: An error if the test fails.
+     */
     * - Fixme: ⚠️️ fix the broken tests
     */
    func testEntropyLevels() throws {

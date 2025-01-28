@@ -36,7 +36,9 @@ extension EntropyAsserter.Entropy {
        */
       public let special: Int
       /**
-       * - Fixme: ⚠️️ add doc
+       * The minimum threshold for a strong password.
+       *
+       * Defines the minimum number of each character type required for a password to be considered strong.
        */
       internal static var strongThreshold: Threshold =  // Return the minimum threshold for a strong password
          .init(
@@ -47,7 +49,9 @@ extension EntropyAsserter.Entropy {
             special: 0 // The minimum number of special characters required
          )
       /**
-       * - Fixme: ⚠️️ add doc
+       * The minimum threshold for a medium password.
+       *
+       * Defines the minimum number of each character type required for a password to be considered medium strength.
        */
       internal static var mediumThreshold: Threshold = // Return the minimum threshold for a medium password
          .init(
@@ -58,7 +62,9 @@ extension EntropyAsserter.Entropy {
             special: 0 // The minimum number of special characters required
          )
       /**
-       * - Fixme: ⚠️️ add doc
+       * The minimum threshold for a weak or invalid password.
+       *
+       * Defines the minimum number of each character type required for a password to be considered weak or invalid.
        */
       internal static var weakThreshold: Threshold = // Return the minimum threshold for a weak or invalid password
          .init(
