@@ -168,6 +168,7 @@ extension RandPSW {
     * - Parameters:
     *   - charCount: Number of letters in the returned string
     * - Returns: A random string containing the specified number of letters
+    * fixme: add characterType here: mixed, upper, lower
     */
    fileprivate static func letters(charCount: Int) throws -> String {
       guard charCount > 0 else { return "" } // Simplified check for charCount being 0
